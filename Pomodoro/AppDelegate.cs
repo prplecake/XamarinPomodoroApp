@@ -1,5 +1,6 @@
 ﻿using AppKit;
 using Foundation;
+using System;
 
 namespace Pomodoro
 {
@@ -13,6 +14,7 @@ namespace Pomodoro
         public override void DidFinishLaunching(NSNotification notification)
         {
             // Insert code here to initialize your application
+            Console.WriteLine("Application starting up...");
         }
 
         public override void WillTerminate(NSNotification notification)

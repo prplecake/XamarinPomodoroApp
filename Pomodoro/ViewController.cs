@@ -59,6 +59,7 @@ namespace Pomodoro
 
         partial void StartStopButtonClicked(NSObject sender)
         {
+            Console.WriteLine("StartStopButton pressed");
             // If the timer is running, we want to stop it,
             // otherwise we want to start it
             if(MainTimer.Enabled)
