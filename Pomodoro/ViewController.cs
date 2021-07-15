@@ -10,6 +10,7 @@ namespace Pomodoro
 
         Timer MainTimer;
         int TimeLeft = 1500; // 1500 seconds is 25 minutes
+        bool TimerStopped = false;
 
         public ViewController(IntPtr handle) : base(handle)
         {
@@ -46,6 +47,7 @@ namespace Pomodoro
                         // Reset the UI
                         TimerLabel.StringValue = "25:00";
                         StartStopButton.Title = "Start";
+                        ResetButton.Hidden = true;
                         NSAlert alert = new NSAlert();
                         // Set the style and message text
                         alert.AlertStyle = NSAlertStyle.Informational;
@@ -62,14 +64,30 @@ namespace Pomodoro
             Console.WriteLine("StartStopButton pressed");
             // If the timer is running, we want to stop it,
             // otherwise we want to start it
-            if(MainTimer.Enabled)
+            if (MainTimer.Enabled)
             {
                 MainTimer.Stop();
+                ResetButton.Hidden = false;
+                TimerStopped = true;
                 StartStopButton.Title = "Start";
             } else
             {
                 MainTimer.Start();
                 StartStopButton.Title = "Stop";
+            }
+        }
+
+        partial void ResetButtonClicked(NSObject sender)
+        {
+            Console.WriteLine("ResetButton pressed");
+            // If the Reset button is pressed after Stopping the timer,
+            // show the Reset button and reset the timer is pressed.
+            if (TimerStopped)
+            {
+                TimerStopped = false;
+                TimeLeft = 1500;
+                TimerLabel.StringValue = "25:00";
+                ResetButton.Hidden = true;
             }
         }
 

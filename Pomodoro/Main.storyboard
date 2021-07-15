@@ -731,9 +731,21 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <button hidden="YES" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fj6-PB-jrx" userLabel="ResetButton">
+                                <rect key="frame" x="206" y="13" width="69" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Reset" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="7LA-xa-erd">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="ResetButtonClicked:" target="XfG-lQ-9wD" id="kIP-WI-QCb"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
                     <connections>
+                        <outlet property="ResetButton" destination="fj6-PB-jrx" id="efd-u9-0i2"/>
                         <outlet property="StartStopButton" destination="qdX-Io-N14" id="4fQ-V2-e6N"/>
                         <outlet property="TimerLabel" destination="aAb-2A-yZ6" id="RcR-Ol-PWg"/>
                     </connections>
